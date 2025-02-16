@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.calculator-container {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 32px;
+}
+
+.toggle-container {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.toggle-btn {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.toggle-btn.active {
+    background-color: #e6f7f4;
+    color: #00b386;
+}
+
+.toggle-btn:not(.active) {
+    background-color: transparent;
+    color: #666;
+}
+
+.input-group {
+    margin-bottom: 24px;
+}
+
+.input-group label {
+    display: block;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.input-wrapper input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #f8f8f8;
+    padding-left: 28px;
+}
+
+.currency-symbol, .percentage-symbol {
+    position: absolute;
+    color: #666;
+}
+
+.currency-symbol {
+    left: 12px;
+}
+
+.percentage-symbol {
+    right: 12px;
+}
+
+.range-slider {
+    width: 100%;
+    height: 4px;
+    background: #e0e0e0;
+    border-radius: 2px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #00b386;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background .15s ease-in-out;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #00b386;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 0;
+    transition: background .15s ease-in-out;
+}
+
+.range-track {
+    height: 4px;
+    background: #00b386;
+    position: relative;
+    border-radius: 2px;
+    margin-top: -4px;
+    pointer-events: none;
+}
+
+.chart {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: conic-gradient(#4c6fff 0% 48%, #e6e9ff 48% 100%);
+    margin: 20px auto;
+}
+
+.results {
+    margin-top: 32px;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 24px;
+}
+
+.result-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.result-label {
+    color: #666;
+}
+
+.result-value {
+    font-weight: 600;
+    color: #333;
+}
+
+.invest-btn {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    margin: 32px auto 0;
+    padding: 12px 24px;
+    background-color: #00b386;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.invest-btn:hover {
+    background-color: #009972;
+}
