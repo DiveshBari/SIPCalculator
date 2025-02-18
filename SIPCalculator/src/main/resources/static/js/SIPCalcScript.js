@@ -42,9 +42,9 @@ async function calculateSIP(){
 		const result = await response.json();
 		console.log("SIP result - ", result);
 		
-		document.getElementById("investedAmount").innerText = result.investedAmnt;
-		document.getElementById("estimatedReturs").innerText = result.estimatedReturns;
-		document.getElementById("totalValue").innerText = result.totalValue;
+		document.getElementById("investedAmount").innerText = result.investedAmnt.toLocaleString()+" ₹";
+		document.getElementById("estimatedReturs").innerText = result.estimatedReturns.toLocaleString()+" ₹";
+		document.getElementById("totalValue").innerText = result.totalValue.toLocaleString()+" ₹";
 	}
 	catch(error){
 		console.error(error);

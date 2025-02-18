@@ -30,15 +30,15 @@ public class SIPController {
 	}
 	
 	@GetMapping(value = "/CalculateSIP", produces = {"application/json"})
-	public CalculatedSIP CalculateSIP(@RequestParam int monthlyInvestment,
-			@RequestParam int returnRate,
-			@RequestParam int timePeriod) {
+	public CalculatedSIP CalculateSIP(@RequestParam double monthlyInvestment,
+			@RequestParam double returnRate,
+			@RequestParam double timePeriod) {
 		
-		System.out.println("In CalculateSIP");
+		System.out.println("In CalculateSIP monthlyInvestment - "+monthlyInvestment + ", returnRate - "+returnRate+ ", timePeriod - "+timePeriod);
 		
 		// Lets calculate the things
-		int InvestedAmnt = timePeriod*12*monthlyInvestment;
-		int monthlyRate = returnRate / (12 * 100); // Convert annual rate to monthly
+		double InvestedAmnt = timePeriod*12*monthlyInvestment;
+		double monthlyRate = returnRate / (12 * 100); // Convert annual rate to monthly
 	    
 	    /* SIP Future Value Formula:
 	     * FV = P × [((1 + r)^n - 1) / r] × (1 + r)
@@ -48,12 +48,13 @@ public class SIPController {
 	     * n = Total Number of Months
 	     */
 	    
-	    int months = timePeriod * 12; // Convert years to months
+		double months = timePeriod * 12; // Convert years to months
 	    int TotalValue = (int) (monthlyInvestment * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate) * (1 + monthlyRate));
 		
-	    int EstimatedReturns = TotalValue - InvestedAmnt;
+	    double EstimatedReturns = TotalValue - InvestedAmnt;
 		
 		CalculatedSIP cs = new CalculatedSIP(InvestedAmnt, TotalValue, EstimatedReturns);
+		System.out.println("calculated SIP - "+cs.toString());
 		return cs;
 	}
 }
