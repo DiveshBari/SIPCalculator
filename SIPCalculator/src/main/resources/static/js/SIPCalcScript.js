@@ -45,12 +45,33 @@ async function calculateSIP(){
 		document.getElementById("investedAmount").innerText = result.investedAmnt.toLocaleString()+" ₹";
 		document.getElementById("estimatedReturs").innerText = result.estimatedReturns.toLocaleString()+" ₹";
 		document.getElementById("totalValue").innerText = result.totalValue.toLocaleString()+" ₹";
+		// FIll the pie chart
+		fillPieChart(result.investedAmnt, result.estimatedReturns);
 	}
 	catch(error){
 		console.error(error);
 		alert("error ocured - "+error);
 	}
 	// From the response get the adequate fields and set it to the jsp
+}
+
+// Function to create the Pie Chart
+function fillPieChart(investedAmnt, estimatedReturns){
+	if(investedAmnt==0 && estimatedReturns==0){
+		investedAmnt=5;
+		estimatedReturns=5;
+	}
+	const ctx = document.getElementById("myPieChart").getContext("2d");
+	const myPieChart = new Chart(ctx, {
+		type: "pie", // type of chart
+		data:{
+			labels:['Invested','Estimated'], // Lables for the chart
+			datasets:[{
+				data: [investedAmnt, estimatedReturns],
+				backgroundColor: ['#36A2EB', '#FFCE56']
+			}]
+		}
+	});
 }
 
 // Initialize all input syncs
@@ -60,3 +81,8 @@ syncInputs('timePeriodRange', 'timePeriod');
 
 // Add click event listener to the calculate button
 document.querySelector('.invest-btn').addEventListener('click', calculateSIP);
+
+// Add page load event and in that call fillPieChart with 0,0 so that on load the pie chart wil be displayed
+window.onload = function(){
+	fillPieChart(0,0);
+}

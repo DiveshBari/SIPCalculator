@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIP Calculator</title>
     <link rel="stylesheet" href="/css/SIPCalcStyles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js CDN -->
 </head>
 <body>
     <div class="calculator-container">
@@ -47,7 +48,9 @@
             <div class="range-track" style="width: 33%;"></div>
         </div>
 
-        <div class="chart"></div>
+        <div style="width: 50%; margin: auto;">
+    		<canvas id="myPieChart"></canvas>
+		</div>
 
         <div class="results">
             <div class="result-row">
